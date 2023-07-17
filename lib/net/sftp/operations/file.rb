@@ -181,7 +181,7 @@ module Net; module SFTP; module Operations
       # Fills the buffer. Returns +true+ if it succeeded, and +false+ if
       # EOF was encountered before any data was read.
       def fill
-        data = sftp.read!(handle, @real_pos, 8192 * 8)
+        data = sftp.read!(handle, @real_pos, 1_048_576)
 
         if data.nil?
           @real_eof = true
